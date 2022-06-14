@@ -4,8 +4,22 @@
 	<meta charset="utf-8">
 	<script>
 		// TODO: create a handler
+		function setSearchEngine(){
+			let searching = document.getElementById('searchForm');
+			let selectedEngine = document.querySelector('input[name=engine]:checked')
+			let actions = {
+				"google": "https://www.google.com/search",
+   				"duckDuckGo": "https://www.duckduckgo.com/",
+  				"bing": "https://www.bing.com/search",
+   				"ask": "https://www.ask.com/web"
+			};
+			let action = actions[selectedEngine.value];
+			searching.setAttribute('action', action)
+		};
     window.addEventListener("load", function(){
         // TODO: register the handler
+		let searching = document.getElementById('searchForm');
+		searching.addEventListener('submit', setSearchEngine)
     });
 	</script>
 </head>
